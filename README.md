@@ -19,5 +19,3 @@ A Flask web application for managing student records with authentication.
 - Python 3.12
 - MySQL
 
-**Clone the repository:**
-   git clone https://github.com/AryamanSriva/student-management-system.git
