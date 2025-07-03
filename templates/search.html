@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mb-4">Search Student</h2>
+    <form method="POST">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Enter Roll No</label>
+                <input type="text" class="form-control" name="roll" required>
+            </div>
+            <div class="col-md-6 align-self-end">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+
+    {% if bio %}
+        <div class="card mt-4">
+            <div class="card-header">
+                Student Details
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ bio.sname }}</h5>
+                <p class="card-text">
+                    <strong>Roll No:</strong> {{ bio.rollno }}<br>
+                    <strong>Semester:</strong> {{ bio.sem }}<br>
+                    <strong>Branch:</strong> {{ bio.branch }}<br>
+                    <strong>Email:</strong> {{ bio.email }}<br>
+                    <strong>Phone:</strong> {{ bio.number }}<br>
+                    <strong>Address:</strong> {{ bio.address }}
+                </p>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if attend %}
+        <div class="card mt-4">
+            <div class="card-header">
+                Attendance
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Attendance: {{ attend.attendance }}%</h5>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mb-4">Student Details</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Semester</th>
+                    <th>Gender</th>
+                    <th>Branch</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in query %}
+                    <tr>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.rollno }}</td>
+                        <td>{{ student.sname }}</td>
+                        <td>{{ student.sem }}</td>
+                        <td>{{ student.gender }}</td>
+                        <td>{{ student.branch }}</td>
+                        <td>{{ student.email }}</td>
+                        <td>{{ student.number }}</td>
+                        <td>{{ student.address }}</td>
+                        <td>
+                            <a href="/edit/{{ student.id }}" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="/delete/{{ student.id }}" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mb-4">Edit Student</h2>
+    <form method="POST">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Roll No</label>
+                <input type="text" class="form-control" name="rollno" value="{{ posts.rollno }}" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="sname" value="{{ posts.sname }}" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Semester</label>
+                <input type="number" class="form-control" name="sem" value="{{ posts.sem }}" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Gender</label>
+                <select class="form-select" name="gender" required>
+                    <option value="Male" {% if posts.gender == 'Male' %}selected{% endif %}>Male</option>
+                    <option value="Female" {% if posts.gender == 'Female' %}selected{% endif %}>Female</option>
+                    <option value="Other" {% if posts.gender == 'Other' %}selected{% endif %}>Other</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Branch</label>
+                <select class="form-select" name="branch" required>
+                    {% for dept in dept %}
+                        <option value="{{ dept.branch }}" {% if posts.branch == dept.branch %}selected{% endif %}>{{ dept.branch }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" value="{{ posts.email }}" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" name="num" value="{{ posts.number }}" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Address</label>
+                <textarea class="form-control" name="address" rows="2" required>{{ posts.address }}</textarea>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

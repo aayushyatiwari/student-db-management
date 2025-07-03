@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mb-4">Add Department</h2>
+    <form method="POST">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Department Name</label>
+                <input type="text" class="form-control" name="dept" required>
+            </div>
+            <div class="col-md-6 align-self-end">
+                <button type="submit" class="btn btn-primary">Add Department</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

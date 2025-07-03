@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="text-center my-4">Welcome to Student Management System</h1>
+    <div class="text-center">
+        {% if current_user.is_authenticated %}
+            <a href="/studentdetails" class="btn btn-primary">View Students</a>
+        {% else %}
+            <a href="/login" class="btn btn-primary">Login</a>
+            <a href="/signup" class="btn btn-secondary">Sign Up</a>
+        {% endif %}
+    </div>
+{% endblock %}

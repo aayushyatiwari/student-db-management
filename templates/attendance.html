@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mb-4">Add Attendance</h2>
+    <form method="POST">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Select Student</label>
+                <select class="form-select" name="rollno" required>
+                    {% for student in query %}
+                        <option value="{{ student.rollno }}">{{ student.rollno }} - {{ student.sname }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Attendance (%)</label>
+                <input type="number" class="form-control" name="attend" min="0" max="100" required>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

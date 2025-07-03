@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_login import UserMixin
+from flask_login import UserMixin, login_user, logout_user, LoginManager, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user, logout_user, login_manager, LoginManager, login_required
-import json
+from flask_sqlalchemy import SQLAlchemy
 
-local_server = True
-app = Flask(__name__)
-app.secret_key = 'aryaman007'
+app = Flask(__name__, template_folder="/home/imaayush/student-management-system/templates")
+app.secret_key = 'yaayush24'  
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///students.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
@@ -189,5 +190,13 @@ def test():
         return 'My database is Connected'
     except:
         return 'My database is not Connected'
+with app.app_context():
+    db.create_all()
 
+@app.route('/debug')
+def debug():
+    try:
+        return render_template('index.html')
+    except Exception as e:
+        return f"Error: {str(e)}"
 app.run(debug=True)

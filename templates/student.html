@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mb-4">Add Student</h2>
+    <form method="POST">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Roll No</label>
+                <input type="text" class="form-control" name="rollno" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="sname" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Semester</label>
+                <input type="number" class="form-control" name="sem" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Gender</label>
+                <select class="form-select" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Branch</label>
+                <select class="form-select" name="branch" required>
+                    {% for dept in dept %}
+                        <option value="{{ dept.branch }}">{{ dept.branch }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" name="num" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Address</label>
+                <textarea class="form-control" name="address" rows="2" required></textarea>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Add Student</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
