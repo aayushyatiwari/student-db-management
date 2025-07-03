@@ -1,23 +1,17 @@
 # Student Management System
 
-A comprehensive web-based application designed to efficiently manage student records, attendance, and department information. This project utilizes the Flask framework and MySQL database, offering a robust and scalable solution for educational institutions.
-
+A Flask web application for managing student records with authentication.
 
 ## Features
-- **Student Management:** Add, update, and delete student records, including personal and academic details.
-- **Attendance Management:** Track and manage student attendance with ease.
-- **Department Management:** Maintain and organize department information.
-- **User Authentication:** Secure login and registration system for users.
-- **Search Functionality:** Quickly find student records and other information.
-- **Responsive Design:** Accessible on various devices with a mobile-friendly interface.
-- **Flash Messages:** User feedback for actions performed within the application.
-- **Scalable and Maintainable:** Highly scalable and easy to maintain.
+- User authentication (login/signup)
+- CRUD operations for student records
+- Attendance tracking
+- Department management
 
-## Technologies Used
-- **Frontend:** HTML, CSS, Bootstrap, JavaScript
-- **Backend:** Python, Flask
-- **Database:** MySQL
-- **Authentication:** Flask-Login
+## Setup
+1. Install requirements:
+   ```bash
+   pip install -r requirements.txt
 
 ## Installation
 
